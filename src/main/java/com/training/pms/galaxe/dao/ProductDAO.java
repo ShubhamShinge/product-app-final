@@ -1,0 +1,13 @@
+package com.training.pms.galaxe.dao;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.training.pms.galaxe.model.Product;
+
+public interface ProductDAO extends CrudRepository<Product, Integer>{
+	public List<Product> findByProductName(String productName);
+	public List<Product> findByQuantityOnHandGreaterThanEqual(int minStock);
+	public List<Product> findByPriceBetween(int min,int max);
+}
